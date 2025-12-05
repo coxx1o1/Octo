@@ -1,0 +1,119 @@
+/* Full-page background */
+body {
+  margin: 0;
+  background: 
+    linear-gradient(rgba(255, 130, 180, 0.35), rgba(255, 150, 180, 0.4)),
+    url("bg.jpg") center/cover no-repeat fixed;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+}
+
+/* app wrapper */
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* card */
+.love-card {
+  width: 360px;
+  min-height: 420px;
+  border-radius: 22px;
+  padding: 24px;
+  backdrop-filter: blur(22px);
+  background: rgba(255, 255, 255, 0.14);
+  
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+  color: #fff;
+
+  animation: cardPop 0.6s ease forwards;
+}
+
+@keyframes cardPop {
+  0% { transform: scale(0.92); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* button */
+.gift-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: 0.2s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.gift-btn:hover {
+  transform: scale(1.03);
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.gift-btn.secondary {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.message {
+  font-size: 22px;
+  font-weight: 700;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.message.secondary {
+  font-size: 21px;
+  opacity: 0.94;
+}
+
+@keyframes fadeInUp {
+  from { transform: translateY(10px); opacity: 0; }
+  to { transform: translateY(0px); opacity: 1; }
+}
+
+/* HEART FLOAT ANIMATION */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 20px;
+  animation: floatUp 3s linear forwards;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh) scale(1.8);
+    opacity: 0;
+  }
+}
+
+/* iPhone & small screens */
+@media (max-width: 430px) {
+  .love-card {
+    width: 90%;
+    min-height: 380px;
+    padding: 20px;
+  }
+  .message { font-size: 20px; }
+}
